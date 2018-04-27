@@ -67,7 +67,7 @@ const start = async() => {
     await server.register({
         plugin: require('good'),
         logOptions
-    })
+    });
     //This is only needed if I want to change the view engine to handlebars
     // server.views({
     //     relativeTo: Path.join(__dirname, 'views'),
@@ -79,58 +79,58 @@ const start = async() => {
     //     partialsPath: 'partials',
     //     helpersPath: 'helpers'
     // })
+/***AUTHENTICATION***/
+    // server.auth.strategy('basic', 'cookie', AuthStrategy);
+    // server.auth.default({
+    //     strategy: 'basic',
+    //     mode: 'try'
+    // });
 
-    server.auth.strategy('basic', 'cookie', AuthStrategy);
-    server.auth.default({
-        strategy: 'basic',
-        mode: 'try'
-    });
+    /*** ERROR HANDLING ***/
+    // server.ext('onPreResponse', function (request, h) {
+    //     const response = request.response;
+    //     // if there's no Boom error, don't bother checking further down
+    //     if (!response.isBoom) {
+    //         return h.continue;
+    //     }
+    //     //let's handle login POST error
+    //     if (request.route.path == '/login' && request.route.method == 'post') {
+    //         //these 3 convoluted expressions below set the error flags for the login.marko template
+    //         //I'll need to make this less complex
+    //         const isUserNameEmpty = response.details.find((x) => {
+    //             if (x.message === '"username" is not allowed to be empty') {
+    //                 return true;
+    //             }
+    //             return false;
+    //         }) !== undefined;
 
-    //error handling
-    server.ext('onPreResponse', function (request, h) {
-        const response = request.response;
-        // if there's no Boom error, don't bother checking further down
-        if (!response.isBoom) {
-            return h.continue;
-        }
-        //let's handle login POST error
-        if (request.route.path == '/login' && request.route.method == 'post') {
-            //these 3 convoluted expressions below set the error flags for the login.marko template
-            //I'll need to make this less complex
-            const isUserNameEmpty = response.details.find((x) => {
-                if (x.message === '"username" is not allowed to be empty') {
-                    return true;
-                }
-                return false;
-            }) !== undefined;
+    //         const isUserNameEmail = response.details.find((x) => {
+    //             if (x.message === '"username" must be a valid email') {
+    //                 return true;
+    //             }
+    //             return false;
+    //         }) !== undefined;
 
-            const isUserNameEmail = response.details.find((x) => {
-                if (x.message === '"username" must be a valid email') {
-                    return true;
-                }
-                return false;
-            }) !== undefined;
+    //         const isPasswordEmpty = response.details.find((x) => {
+    //             if (x.message === '"password" is not allowed to be empty') {
+    //                 return true;
+    //             }
+    //             return false;
+    //         }) !== undefined;
+    //         return h.view('login', {
+    //             isUserNameEmpty:isUserNameEmpty,
+    //             isUserNameEmail: isUserNameEmail,
+    //             isPasswordEmpty: isPasswordEmpty
+    //         });
+    //     }
 
-            const isPasswordEmpty = response.details.find((x) => {
-                if (x.message === '"password" is not allowed to be empty') {
-                    return true;
-                }
-                return false;
-            }) !== undefined;
-            return h.view('login', {
-                isUserNameEmpty:isUserNameEmpty,
-                isUserNameEmail: isUserNameEmail,
-                isPasswordEmpty: isPasswordEmpty
-            });
-        }
+    //     //handle 404 error 
+    //     if (response.output.statusCode == '404') {
+    //         return h.view('404');
+    //     };
 
-        //handle 404 error 
-        if (response.output.statusCode == '404') {
-            return h.view('404');
-        };
-
-        return h.continue;
-    });
+    //     return h.continue;
+    // });
 
     server.views({
         relativeTo: __dirname,
@@ -162,10 +162,10 @@ const start = async() => {
         path: '/',
         method: 'GET',
         options: {
-            auth: {
-                strategy: 'basic',
-                mode: 'required'
-            }
+            // auth: {
+            //     strategy: 'basic',
+            //     mode: 'required'
+            // }
         },
         handler: (req, h) => {
             return h.view('index', {
@@ -178,10 +178,10 @@ const start = async() => {
         path: '/user',
         method: 'GET',
         options: {
-            auth: {
-                strategy: 'basic',
-                mode: 'required'
-            }
+            // auth: {
+            //     strategy: 'basic',
+            //     mode: 'required'
+            // }
         },
         handler: (req, h) => {
             return h.view('user', {
