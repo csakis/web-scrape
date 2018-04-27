@@ -1,0 +1,41 @@
+{
+  "name": "hapi-metronic-markojs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/csakis/hapi-metronic-markojs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/csakis/hapi-metronic-markojs/issues"
+  },
+  "homepage": "https://github.com/csakis/hapi-metronic-markojs#readme",
+  "dependencies": {
+    "bcrypt": "^1.0.3",
+    "browser-refresh-taglib": "^1.1.0",
+    "good": "^8.0.0-rc1",
+    "good-console": "^6.4.1",
+    "good-squeeze": "^5.0.2",
+    "hapi": "^17.2.0",
+    "hapi-auth-cookie": "^8.0.0",
+    "inert": "^5.0.1",
+    "joi": "^13.1.0",
+    "marko": "^4.7.4",
+    "relish": "^0.2.4",
+    "vision": "^5.3.0"
+  },
+  "devDependencies": {
+    "browser-refresh-taglib": "^1.1.0",
+    "eslint": "^4.15.0",
+    "eslint-config-hapi": "^11.1.0",
+    "eslint-plugin-hapi": "^4.1.0",
+    "eslint-plugin-import": "^2.8.0"
+  }
+}

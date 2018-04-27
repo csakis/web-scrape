@@ -1,0 +1,12 @@
+{
+    "csaba": {
+        "username": "csaba",
+        "password": "$2a$04$nBL6D6YjcnrztBo6z6rtZucInLYE3z/ky0V3w3WTxTFqcXbhjJKMe",
+        "full_name": "Csaba Kiss"
+    },
+    "csakis@gmail.com": {
+        "username": "csakis@gmail.com",
+        "password": "$2a$10$R6.AWrrmnFz/3VExDJ5fWO.XRlr9WHG/jdJSYe/5tbpN3.ySsDBju",
+        "full_name": "Csaba Kiss"
+    }
+}
