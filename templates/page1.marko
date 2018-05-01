@@ -1,8 +1,10 @@
 import layout from './layout'
 <include(layout)>
     <@body>
-    
        <app-header page = "1" depth = "${input.depth}"></app-header>
-      
+       <div class="row">
+       <app-linksDown depth = "${input.depth}"></app-linksDown>
+       </div>
+    
     </@body>
 </include>
