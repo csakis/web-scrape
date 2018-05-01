@@ -175,7 +175,7 @@ const start = async() => {
     })
 
     server.route({
-        path: '/user',
+        path: '/page1/{depth}',
         method: 'GET',
         options: {
             // auth: {
@@ -184,55 +184,12 @@ const start = async() => {
             // }
         },
         handler: (req, h) => {
-            return h.view('user', {
-                title: "User!!"
+            const depth = req.params.depth
+            return h.view('page1', {
+                depth: depth
             })
         }
     })
-
-    server.route({
-        path: '/login',
-        method: 'GET',
-        handler: (req, h) => {
-            return h.view('login', {
-                isUserNameEmpty: false,
-                isUserNameEmail: false,
-                isPasswordEmpty: false
-            });
-        }
-    });
-
-    server.route({
-        path: '/login',
-        method: 'POST',
-        config: {
-            validate: {
-                options: {
-                    abortEarly: false
-                },
-                payload: loginSchema,
-                failAction: (request, h, err) => {
-                    throw err;
-                    return;
-                }
-            }
-        },
-        handler: async(req, h) => {
-            const {
-                username,
-                password
-            } = req.payload;
-            const user = Users[username];
-            if (!user || !await Bcrypt.compare(password, user.password)) {
-                console.log("Hacker alert!");
-                return h.redirect('/login');
-            }
-            req.cookieAuth.set({
-                username
-            })
-            return h.redirect('/');
-        }
-    });
 
     //serving static files
     server.route({
