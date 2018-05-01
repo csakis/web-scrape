@@ -191,6 +191,40 @@ const start = async() => {
         }
     })
 
+    server.route({
+        path: '/page2/{depth}',
+        method: 'GET',
+        options: {
+            // auth: {
+            //     strategy: 'basic',
+            //     mode: 'required'
+            // }
+        },
+        handler: (req, h) => {
+            const depth = req.params.depth
+            return h.view('page2', {
+                depth: depth
+            })
+        }
+    })
+
+    server.route({
+        path: '/page3/{depth}',
+        method: 'GET',
+        options: {
+            // auth: {
+            //     strategy: 'basic',
+            //     mode: 'required'
+            // }
+        },
+        handler: (req, h) => {
+            const depth = req.params.depth
+            return h.view('page3', {
+                depth: depth
+            })
+        }
+    })
+
     //serving static files
     server.route({
         method: 'GET',
