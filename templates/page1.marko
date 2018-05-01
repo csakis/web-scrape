@@ -3,9 +3,16 @@ import layout from './layout'
     <@body>
        <app-header page = "1" depth = "${input.depth}"></app-header>
        <div class="row">
-       <app-linkWidget cardTitle="Downward links" depth = "${+input.depth + 1}"></app-linkWidget>
-       <app-linkWidget  if(input.depth>0) cardTitle="Upward links" depth = "${input.depth - 1}"></app-linkWidget>
+       <app-linkWidget card-title="Downward links" depth = "${+input.depth + 1}"></app-linkWidget>
+       <app-linkWidget  if(input.depth>0) card-title="Upward links" depth = "${input.depth - 1}"></app-linkWidget>
+       </div><!-- row  -->
+       <div class="row">
+       <app-imageWidget if(input.depth==0) image-name="uni-${input.depth}.jpg"></app-imageWidget>  
+       <app-imageWidget if(input.depth==1) image-name="uni-${input.depth}.jpg"></app-imageWidget>  
+       <app-imageWidget if(input.depth==2) image-name="uni-${input.depth}.jpg"></app-imageWidget>  
+       <app-imageWidget if(input.depth==3) image-name="uni-${input.depth}.jpg"></app-imageWidget>  
+       <app-imageWidget if(input.depth==4) image-name="uni-${input.depth}.jpg"></app-imageWidget>  
+       
        </div>
-    
     </@body>
 </include>
