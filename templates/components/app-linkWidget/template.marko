@@ -1,19 +1,19 @@
-$ const downDepth = parseInt(input.depth) + 1
+$ const depth = parseInt(input.depth)
 <div class="col-sm">
     <div class="card">
         <div class="card-body">
             <ul class="list-group">
                 <h5 class="card-title">
-    Links down
+    ${input.cardTitle}
     </h5>
                 <li class="list-group-item">
-                    <a href="/page1/${downDepth}">Page1 - Depth: ${downDepth} </a>
+                    <a href="/page1/${depth}">Page1 - Depth: ${depth} </a>
                 </li>
                 <li class="list-group-item">
-                    <a href="/page2/${downDepth}">Page2 - Depth: ${downDepth} </a>
+                    <a href="/page2/${depth}">Page2 - Depth: ${depth} </a>
                 </li>
                 <li class="list-group-item">
-                    <a href="/page3/${downDepth}">Page3 - Depth: ${downDepth} </a>
+                    <a href="/page3/${depth}">Page3 - Depth: ${depth} </a>
                 </li>
             </ul>
         </div>
