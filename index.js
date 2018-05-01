@@ -244,7 +244,7 @@ const start = async() => {
     if (process.send) {
         process.send({
             event: 'online',
-            url: 'http://localhost:3030/'
+            url: 'http://localhost:3030/page1/0'
         });
     }
 };
