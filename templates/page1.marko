@@ -2,9 +2,7 @@ import layout from './layout'
 <include(layout)>
     <@body>
     <div class="container">
-        <h1>Scraping template site</h1>
-        <h2>Page:1 - Depth: ${input.depth}</h2>
-       
+       <app-header page = "1" depth = ${input.depth}></app-header>
         </div>
     </@body>
 </include>

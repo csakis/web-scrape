@@ -2,10 +2,7 @@ import layout from './layout'
 <include(layout)>
     <@body>
     <div class="container">
-        <h1>Scraping template site</h1>
-        <h2></h2>
-        <app-hello name="Person"></app-hello>
-		<i class="fal fa-shield-check"></i>
-        </div>
+        <app-header page = "2" depth = ${input.depth}></app-header>
+    </div>
     </@body>
 </include>
